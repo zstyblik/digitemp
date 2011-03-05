@@ -19,6 +19,7 @@ tr '\n' ':' | tr -s ':' | tr -d ' ')
 #TIMEUNIX=$(echo "${RRDOUT}" | cut -d ':' -f 2)
 #TIMELAST=$(echo "${TIMEUNIX}" | awk '{ print strftime("%c", $1) }')
 TEMP=$(echo "${RRDOUT}" | cut -d ':' -f 3)
+TEMP=$(printf "%.2f" "${TEMP}")
 
 echo "<li><strong>${LOCATION}:</strong> ${TEMP} &#176;C</li>"
 
